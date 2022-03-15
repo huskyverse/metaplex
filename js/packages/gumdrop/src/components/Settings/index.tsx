@@ -1,6 +1,6 @@
 import React from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { ENDPOINTS, useColorMode, useConnectionConfig } from '../../contexts';
+import { ENDPOINTS, useConnectionConfig } from '../../contexts';
 import { notify, shortenAddress } from '@oyster/common';
 import { CopyOutlined } from '@ant-design/icons';
 import { ModalEnum, useModal, useWalletModal } from '../../contexts';
@@ -20,11 +20,8 @@ import {
   Select,
   Stack,
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
@@ -34,8 +31,6 @@ export const Settings = ({ narrow }: { narrow: boolean }) => {
   const { setVisible } = useWalletModal();
   const open = React.useCallback(() => setVisible(true), [setVisible]);
   const { setModal } = useModal();
-  const theme = useTheme();
-  const colorModeCtx = useColorMode();
 
   const handleConnect = React.useCallback(() => {
     setModal(ModalEnum.WALLET);
@@ -118,20 +113,6 @@ export const Settings = ({ narrow }: { narrow: boolean }) => {
     );
   };
 
-  const themeSwitch = (
-    <Button
-      sx={{ ml: 1 }}
-      onClick={colorModeCtx.toggleColorMode}
-      color="inherit"
-    >
-      {theme.palette.mode === 'dark' ? (
-        <Brightness7Icon />
-      ) : (
-        <Brightness4Icon />
-      )}
-    </Button>
-  );
-
   if (narrow) {
     const listHead = (
       <ListItem>
@@ -191,7 +172,6 @@ export const Settings = ({ narrow }: { narrow: boolean }) => {
               })}
             </List>,
           )}
-        {themeSwitch}
       </React.Fragment>
     );
   } else {
@@ -243,7 +223,6 @@ export const Settings = ({ narrow }: { narrow: boolean }) => {
               </Button>
             );
           })}
-        {themeSwitch}
       </Stack>
     );
   }

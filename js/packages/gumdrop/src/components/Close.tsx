@@ -11,6 +11,7 @@ import {
   Stack,
   Select,
   TextField,
+  Typography,
 } from '@mui/material';
 
 import { useWallet } from '@solana/wallet-adapter-react';
@@ -143,6 +144,7 @@ export const Close = () => {
   );
   return (
     <Stack spacing={2}>
+      <Typography>** Only drop creator can close airdrops **</Typography>
       <TextField
         id="base-text-field"
         label="Base Private Key"

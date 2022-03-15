@@ -18,6 +18,7 @@ import {
   TableHead,
   TableRow,
   TextField,
+  Typography,
 } from '@mui/material';
 import FilePresentIcon from '@mui/icons-material/FilePresent';
 
@@ -778,6 +779,7 @@ export const Create = () => {
 
   return (
     <Stack spacing={2}>
+      <Typography>** Only drop creator can create airdrops **</Typography>
       <FormControl fullWidth>
         <InputLabel id="claim-method-label">Claim Method</InputLabel>
         <Select
