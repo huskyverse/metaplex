@@ -42,6 +42,8 @@ export const Header = ({ narrow }: { narrow: boolean }) => {
     setDrawerOpen(open);
   };
 
+  console.log(process.env.REACT_APP_WEB_HOME, 'web home');
+
   return (
     <Box
       sx={{
