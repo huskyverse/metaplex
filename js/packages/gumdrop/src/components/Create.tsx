@@ -453,7 +453,7 @@ export const Create = () => {
       wallet.publicKey,
       commMethod,
       claimMethod,
-      `${window.location.origin}${process.env.REACT_APP_WEB_HOME}`,
+      `${window.location.origin}`,
       base.publicKey,
       temporalSigner,
       claimants,
